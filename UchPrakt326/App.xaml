@@ -15,5 +15,12 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="14"/>
         </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="BorderBrush" Value="#FF04A0FF"/>
+            <Setter Property="BorderThickness" Value="0.7"/>
+        </Style>
     </Application.Resources>
 </Application>

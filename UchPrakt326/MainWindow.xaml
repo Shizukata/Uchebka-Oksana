@@ -12,11 +12,15 @@
                 <Image HorizontalAlignment="Left" Margin="10 0 0 0" 
                        RenderOptions.BitmapScalingMode="Fant"
                        Height="60" Source="Resources/school_logo.png"/>
-                <StackPanel Orientation="Horizontal" Margin="560 0 0 0" Height="35" 
-                            Background="#FFE7FABF" Width="135">
-                    <TextBox MaxLength="4" x:Name="TbGodCode" Height="20" Width="70" Margin="10 0 5 0"/>
-                    <Button Content="Войти" Height="20" Width="40" Background="Transparent"
-                            BorderBrush="Gray" Click="Button_Click_GM"/>
+                <Border Margin="210 0 0 0" Background="#FF04A0FF" Width="260" CornerRadius="0 0 30 30">
+                    <TextBlock HorizontalAlignment="Center" x:Name="Header" VerticalAlignment="Center"
+                               Text="" FontSize="30" Foreground="White" FontWeight="Medium" FontStyle="Italic"/>
+                </Border>
+                <StackPanel Margin="180 0 0 0" Height="55" 
+                            Background="#FFE7FABF" Width="60">
+                    <TextBox MaxLength="4" x:Name="TbGodCode" Height="20" Width="50" Margin="5 5 5 0"/>
+                    <Button Content="Войти" Height="20" Width="50" Background="Transparent"
+                            BorderBrush="Gray" Click="Button_Click_GM" Margin="5 5 5 0"/>
                 </StackPanel>
             </StackPanel>
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" 

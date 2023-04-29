@@ -26,13 +26,17 @@ namespace UchPrakt326
         {
             InitializeComponent();
             MainFrame.Navigate(new ServicePage());
-            
+            Header.Text = App.header.ToString();
+
         }
 
         private void Button_Click_GM(object sender, RoutedEventArgs e)
         {
             if (TbGodCode.Text == "0000")
+            {
                 App.godMod = true;
+                MainFrame.Navigate(new ServicePage());
+            }
             else
                 MessageBox.Show("Код неверный");
         }

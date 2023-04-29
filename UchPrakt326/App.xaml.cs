@@ -14,7 +14,8 @@ namespace UchPrakt326
     /// </summary>
     public partial class App : Application
     {
-        public static UchPrakt326Entities DB = new UchPrakt326Entities();
+        public static UchPrakt326Entities  DB = new UchPrakt326Entities();
         public static bool godMod = false;
+        public static string header;
     }
 }

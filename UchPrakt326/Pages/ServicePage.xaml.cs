@@ -23,7 +23,8 @@ namespace UchPrakt326.Pages
         public ServicePage()
         {
             InitializeComponent();
-            LvList.ItemsSource = App.DB.Service;
+            App.header = "Список услуг";
+            LvList.ItemsSource = App.DB.Service.ToList();
 
         }
     }
