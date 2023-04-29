@@ -13,26 +13,31 @@
         <ListView x:Name="LvList" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="5" Width="775" Height="100">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100*"/>
-                                <ColumnDefinition Width="676*"/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel>
-                                <Image Height="100" Width="100"/>
-                            </StackPanel>
-                            <StackPanel Grid.Column="1" Margin="20 0 0 0">
-                                <TextBlock Text="{Binding Name}"/>
-                                <TextBlock Text="{Binding CostPerMin}"/>
-                                <TextBlock Text="{Binding Discount}"/>
-                                <StackPanel Orientation="Horizontal" Margin="0 30 0 0">
-                                    <Button Content="редактировать" Margin="0 0 20 0"/>
-                                    <Button Content="удалить" Margin="0 0 20 0"/>
+                    <Border BorderThickness="1.5" BorderBrush="#FF04A0FF">
+                        <StackPanel Margin="5" Width="755" Height="100">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100*"/>
+                                    <ColumnDefinition Width="676*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <Image Height="100" Width="100"/>
                                 </StackPanel>
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
+                                <StackPanel Grid.Column="1" Margin="20 0 0 0">
+                                    <TextBlock Grid.Column="1" Text="{Binding Title}"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Cost}" Visibility="{Binding VisibilityCost}" TextDecorations="Strikethrough"/>
+                                        <TextBlock Text="{Binding StrCostTime, StringFormat=F}"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding StrDiscount, StringFormat=F}" Visibility="{Binding VisibilityDiscount}"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 30 0 0">
+                                        <Button Content="редактировать" Margin="0 0 20 0"/>
+                                        <Button Content="удалить" Margin="0 0 20 0"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

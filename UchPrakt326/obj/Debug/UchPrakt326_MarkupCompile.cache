@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\progWeb\source\repos\UchPrakt326\UchPrakt326\obj\Debug\
+C:\Users\freep\Source\Repos\Uchebka-Oksana\UchPrakt326\obj\Debug\
 UchPrakt326
 none
 false
 DEBUG;TRACE
-C:\Users\progWeb\source\repos\UchPrakt326\UchPrakt326\App.xaml
-2531435879
+C:\Users\freep\Source\Repos\Uchebka-Oksana\UchPrakt326\App.xaml
+4-103824113
 2739969757
-211449551889
-18-1530414729
-MainWindow.xaml;Pages\ServicePage.xaml;
+24-871234301
+18-482572405
+MainWindow.xaml;Pages\AddEditServicePage.xaml;Pages\ServicePage.xaml;Pages\ServicePageprob.xaml;
 
-False
+True
 
