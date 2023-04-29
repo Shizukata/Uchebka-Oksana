@@ -8,15 +8,15 @@
         Title="Школа иностранных языков" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <StackPanel Background="White" Height="70" Orientation="Horizontal">
+            <StackPanel Background="White" Height="60" Orientation="Horizontal">
                 <Image HorizontalAlignment="Left" Margin="10 0 0 0" 
                        RenderOptions.BitmapScalingMode="Fant"
-                       Height="70" Source="Resources/school_logo.png"/>
-                <StackPanel Orientation="Horizontal" Margin="560 0 0 0" Height="40" 
+                       Height="60" Source="Resources/school_logo.png"/>
+                <StackPanel Orientation="Horizontal" Margin="560 0 0 0" Height="35" 
                             Background="#FFE7FABF" Width="135">
-                    <TextBox Height="25" Width="70" Margin="10 0 5 0"/>
+                    <TextBox MaxLength="4" x:Name="TbGodCode" Height="20" Width="70" Margin="10 0 5 0"/>
                     <Button Content="Войти" Height="20" Width="40" Background="Transparent"
-                            BorderBrush="Gray"/>
+                            BorderBrush="Gray" Click="Button_Click_GM"/>
                 </StackPanel>
             </StackPanel>
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" 

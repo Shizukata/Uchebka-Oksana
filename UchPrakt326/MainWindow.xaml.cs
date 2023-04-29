@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +26,15 @@ namespace UchPrakt326
         {
             InitializeComponent();
             MainFrame.Navigate(new ServicePage());
+            
+        }
+
+        private void Button_Click_GM(object sender, RoutedEventArgs e)
+        {
+            if (TbGodCode.Text == "0000")
+                App.godMod = true;
+            else
+                MessageBox.Show("Код неверный");
         }
     }
 }

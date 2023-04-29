@@ -9,8 +9,30 @@
       Title="ServicePage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="401*"/>
+        </Grid.RowDefinitions>
         <TextBlock Text="" Background="#FF04A0FF"/>
-        <ListView x:Name="LvList" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="5 3 0 0" Text="Поиск:" Style="{StaticResource TbWhite}"/>
+            <TextBox Width="200" Height="20" Margin="5 0 0 0"/>
+            <TextBlock Margin="5 3 0 0" Text="Сортировка:" Style="{StaticResource TbWhite}"/>
+            <ComboBox x:Name="SortCb" Width="100" Height="20" Background="#FFE7FABF"
+                      SelectionChanged="SortCb_SelectionChanged">
+                <ComboBoxItem>По умолчанию</ComboBoxItem>
+                <ComboBoxItem>По возрастанию</ComboBoxItem>
+                <ComboBoxItem>По убыванию</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Margin="5 3 0 0" Text="Скидка:" Style="{StaticResource TbWhite}"/>
+            <ComboBox x:Name="DiscountCb" Width="100" Height="20" Background="#FFE7FABF"
+                      SelectionChanged="DiscountCb_SelectionChanged">
+                <ComboBoxItem>По умолчанию</ComboBoxItem>
+                <ComboBoxItem>По возрастанию</ComboBoxItem>
+                <ComboBoxItem>По убыванию</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <ListView x:Name="LvList" Grid.Row="1" BorderThickness="0" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="1.5" BorderBrush="#FF04A0FF">
@@ -21,18 +43,20 @@
                                     <ColumnDefinition Width="676*"/>
                                 </Grid.ColumnDefinitions>
                                 <StackPanel>
-                                    <Image Height="100" Width="100"/>
+                                    <Border BorderBrush="#FF04A0FF">
+                                        <Image Height="100" Width="100"/>
+                                    </Border>
                                 </StackPanel>
                                 <StackPanel Grid.Column="1" Margin="20 0 0 0">
-                                    <TextBlock Grid.Column="1" Text="{Binding Title}"/>
+                                    <TextBlock Grid.Column="1" FontSize="18" Text="{Binding Title}"/>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding Cost}" Visibility="{Binding VisibilityCost}" TextDecorations="Strikethrough"/>
                                         <TextBlock Text="{Binding StrCostTime, StringFormat=F}"/>
                                     </StackPanel>
                                     <TextBlock Text="{Binding StrDiscount, StringFormat=F}" Visibility="{Binding VisibilityDiscount}"/>
-                                    <StackPanel Orientation="Horizontal" Margin="0 30 0 0">
-                                        <Button Content="редактировать" Margin="0 0 20 0"/>
-                                        <Button Content="удалить" Margin="0 0 20 0"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                                        <Button Content="редактировать" Margin="0 0 10 0" Width="110"/>
+                                        <Button Content="удалить" Width="60"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Grid>

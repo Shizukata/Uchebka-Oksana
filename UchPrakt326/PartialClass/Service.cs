@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace DemoEkz.Components
+namespace UchPrakt326.Model
 {
     public partial class Service
     {
@@ -13,10 +13,10 @@ namespace DemoEkz.Components
         {
             get
             {
-                if (Navigation.AutorizateUser.RoleId == 2)
-                    return Visibility.Collapsed;
-                else
+                if (App.godMod == true)
                     return Visibility.Visible;
+                else
+                    return Visibility.Collapsed;
             }
         }
         public string Color
@@ -34,9 +34,9 @@ namespace DemoEkz.Components
             get
             {
                 if (Discount == 0 || Discount == null)
-                    return $"{Cost} рублей за {DurationInSeconds/60} минут";
+                    return $"{Cost} рублей за {DurationInSeconds / 60} минут";
                 else
-                    return $"{(double)Cost- (double)Cost* Discount} рублей за {DurationInSeconds / 60} минут";
+                    return $"{(double)Cost - (double)Cost * Discount} рублей за {DurationInSeconds / 60} минут";
             }
         }
         public Visibility VisibilityCost
@@ -76,8 +76,10 @@ namespace DemoEkz.Components
                 if (Discount == 0 || Discount == null)
                     return Cost;
                 else
-                    return (decimal)Cost - Convert.ToDecimal(Cost)*Convert.ToDecimal(Discount);
+                    return (decimal)Cost - Convert.ToDecimal(Cost) * Convert.ToDecimal(Discount);
             }
         }
-    }   
+    }
 }
+
+
