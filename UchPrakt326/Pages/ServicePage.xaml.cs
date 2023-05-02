@@ -27,5 +27,15 @@ namespace UchPrakt326.Pages
             LvList.ItemsSource = App.DB.Service.ToList();
 
         }
+
+        private void Edit_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Delete_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

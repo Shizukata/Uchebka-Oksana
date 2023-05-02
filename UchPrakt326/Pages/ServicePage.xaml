@@ -38,8 +38,8 @@
                                     </StackPanel>
                                     <TextBlock Text="{Binding StrDiscount, StringFormat=F}" Visibility="{Binding VisibilityDiscount}"/>
                                     <StackPanel Orientation="Horizontal" Margin="0 10 0 0" Visibility="{Binding VisibilityBtn}">
-                                        <Button Content="редактировать" Margin="0 0 10 0" Width="110"/>
-                                        <Button Content="удалить" Width="60"/>
+                                        <Button Content="редактировать" Margin="0 0 10 0" Width="110" Click="Edit_Btn_Click"/>
+                                        <Button Content="удалить" Width="60" Click="Delete_Btn_Click"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Grid>

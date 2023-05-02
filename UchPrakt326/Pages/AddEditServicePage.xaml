@@ -10,41 +10,37 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="150px"/>
+            <ColumnDefinition Width="250px"/>
+            <ColumnDefinition Width="400*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="225*"/>
         </Grid.RowDefinitions>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Наименование</TextBlock>
-                <TextBox TextWrapping="Wrap" Height="33" Text="{Binding Title}"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Стоимость</TextBlock>
-                <TextBox Text="{Binding Cost}"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Длительность в минутах</TextBlock>
-                <TextBox Text="{Binding DurationInSeconds}"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Описание</TextBlock>
-                <TextBox Text="{Binding Description}"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock>Скидка</TextBlock>
-                <TextBox Text="{Binding Discount}"></TextBox>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center">
-                <Button x:Name="SaveBtn" Click="SaveBtn_Click">Сохранить</Button>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right">Наименование:</TextBlock>
+        <TextBox Margin="5 0 0 0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="24" Grid.Column="1" Text="{Binding Title}"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="1">Стоимость:</TextBlock>
+        <TextBox Margin="5 0 0 0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="25" Width="70" Text="{Binding Cost}"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="2">Длительность в секундах:</TextBlock>
+        <TextBox Margin="5 0 0 0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" Height="25" Width="70" Text="{Binding DurationInSeconds}"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="3">Описание:</TextBlock>
+        <TextBox Margin="5 0 0 0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Height="40" Text="{Binding Description}"></TextBox>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="4">Скидка:</TextBlock>
+        <TextBox Margin="5 0 0 0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4" Height="25" Width="70" Text="{Binding Discount}"/>
+        <Button x:Name="SaveBtn" Width="100" Height="25" Grid.Column="1" Grid.Row="5">Сохранить</Button>
+        <StackPanel Grid.Column="2" Grid.RowSpan="5" Orientation="Horizontal">
+            <Border Margin="5 5" CornerRadius="3" BorderThickness="1" BorderBrush="#FF04A0FF">
+                <Image Width="199" Height="199" x:Name="ServiceImg" Source="{Binding MainImagePath}"/>
+            </Border>
+            <StackPanel VerticalAlignment="Center">
+                <Button x:Name="AddImageBtn" Margin="0 10 0 10" Width="170" Height="25">Добавить изображение</Button>
+                <Button x:Name="DltImageBtn" Width="170" Height="25">Удалить изображение</Button>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="1">
-                <Image Width="200" Height="200" x:Name="ServiceImg" Source="{Binding MainImagePath}"></Image>
-                <Button x:Name="AddImageBtn" Width="170" Click="AddImageBtn_Click">Добавить изображение</Button>
-            </StackPanel>
     </Grid>
 </Page>
