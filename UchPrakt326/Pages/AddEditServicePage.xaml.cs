@@ -24,15 +24,15 @@ namespace UchPrakt326.Pages
     /// </summary>
     public partial class AddEditSevicePage : Page
     {
-        Service service;
-        public AddEditSevicePage(Service service)
+        Service serv;
+        public AddEditSevicePage(Service serv)
         {
             InitializeComponent();
-            this.service = service;
-            this.DataContext = service;
-            service.DurationInSeconds /= 60;
-            service.Discount *= 100;
-            ExcessImageList.ItemsSource = service.ServicePhoto;
+            this.serv = serv;
+            this.DataContext = serv;
+            serv.DurationInSeconds /= 60;
+            serv.Discount *= 100;
+            ExcessImageList.ItemsSource = serv.ServicePhoto;
         }
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -40,11 +40,11 @@ namespace UchPrakt326.Pages
         }
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            service.DurationInSeconds *= 60;
-            service.Discount /= 100;
-            if (service.ID == 0)
+            serv.DurationInSeconds *= 60;
+            serv.Discount /= 100;
+            if (serv.ID == 0)
             {
-                App.DB.Service.Add(service);
+                App.DB.Service.Add(serv);
             }
             App.DB.SaveChanges();
             MessageBox.Show("Успешно");
@@ -58,7 +58,7 @@ namespace UchPrakt326.Pages
             };
             if (openFileDialog.ShowDialog().GetValueOrDefault())
             {
-                service.Logo = File.ReadAllBytes(openFileDialog.FileName);
+                serv.Logo = File.ReadAllBytes(openFileDialog.FileName);
                 ServiceImg.Source = new BitmapImage(new Uri(openFileDialog.FileName));
             }
         }
@@ -86,17 +86,17 @@ namespace UchPrakt326.Pages
             if (openFile.ShowDialog().GetValueOrDefault())
             {
                 servicePhoto.PhotoPath = File.ReadAllBytes(openFile.FileName);
-                servicePhoto.ServiceID = service.ID;
+                servicePhoto.ServiceID = serv.ID;
                 App.DB.ServicePhoto.Add(servicePhoto);
                 App.DB.SaveChanges();
             }
-            ExcessImageList.ItemsSource = service.ServicePhoto;
+            ExcessImageList.ItemsSource = serv.ServicePhoto;
         }
         int numberPage = 0;
         int count = 3;
         private void Update()
         {
-            IEnumerable<ServicePhoto> servicePhotoList = App.DB.ServicePhoto.Where(x => x.ServiceID == service.ID);
+            IEnumerable<ServicePhoto> servicePhotoList = App.DB.ServicePhoto.Where(x => x.ServiceID == serv.ID);
             servicePhotoList = servicePhotoList.Skip(count * numberPage).Take(count);
             ExcessImageList.ItemsSource = servicePhotoList;
         }
