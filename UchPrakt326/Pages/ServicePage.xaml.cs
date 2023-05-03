@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UchPrakt326.Model;
 
 namespace UchPrakt326.Pages
 {
@@ -24,18 +26,72 @@ namespace UchPrakt326.Pages
         {
             InitializeComponent();
             App.header = "Список услуг";
-            LvList.ItemsSource = App.DB.Service.ToList();
+            InitializeComponent();
+            LvList.ItemsSource =App.DB.Service.Where(x => x.isDelete != true).ToList();
 
         }
 
-        private void Edit_Btn_Click(object sender, RoutedEventArgs e)
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            //Navigate(new AddEditSevicePage("Добавление услуги", new AddEditSevicePage(new Service())));
         }
 
-        private void Delete_Btn_Click(object sender, RoutedEventArgs e)
+        private void CreateBtn_Click(object sender, RoutedEventArgs e)
         {
+            var selService = (sender as Button).DataContext as Service;
+            //Navigate(new AddEditSevicePage("Редактирование услуги", new AddEditServicePage(selService)));
+        }
 
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selService = (sender as Button).DataContext as Service;
+            if (MessageBox.Show("Вы действительно хотите удалить эту запись?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                selService.isDelete = true;
+                App.DB.SaveChanges();
+                LvList.ItemsSource = App.DB.Service.Where(x => x.isDelete != true).ToList();
+
+            }
+        }
+        public void Refresh()
+        {
+            IEnumerable<Service> filterService = App.DB.Service.Where(x => x.isDelete != true).ToList();
+            if (SortCb.SelectedIndex == 1)
+                filterService = filterService.OrderBy(x => x.CostDiscount);
+            else if (SortCb.SelectedIndex == 2)
+                filterService = filterService.OrderByDescending(x => x.CostDiscount);
+            if (DiscountSortCb.SelectedIndex > 0)
+            {
+                if (DiscountSortCb.SelectedIndex == 1)
+                    filterService = filterService.Where(x => x.Discount >= 0 && x.Discount < 0.05 || x.Discount == null).ToList();
+                else if (DiscountSortCb.SelectedIndex == 2)
+                    filterService = filterService.Where(x => x.Discount >= 0.05 && x.Discount < 0.15).ToList();
+                else if (DiscountSortCb.SelectedIndex == 3)
+                    filterService = filterService.Where(x => x.Discount >= 0.15 && x.Discount < 0.30).ToList();
+                else if (DiscountSortCb.SelectedIndex == 4)
+                    filterService = filterService.Where(x => x.Discount >= 0.30 && x.Discount < 0.70).ToList();
+                else if (DiscountSortCb.SelectedIndex == 5)
+                    filterService = filterService.Where(x => x.Discount >= 0.70 && x.Discount < 1).ToList();
+            }
+            if (TitleDescriptionTb.Text.Length > 0)
+            {
+                filterService = filterService.Where(x => x.Title.ToLower().StartsWith(TitleDescriptionTb.Text.ToLower()) || x.Description.ToLower().StartsWith(TitleDescriptionTb.Text.ToLower()));
+            }
+            LvList.ItemsSource = filterService.ToList();
+        }
+        private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void DiscountSortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void TitleDescriptionTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

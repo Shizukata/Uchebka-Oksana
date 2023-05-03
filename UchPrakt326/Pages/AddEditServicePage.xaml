@@ -20,19 +20,20 @@
             <RowDefinition Height="40px"/>
             <RowDefinition Height="40px"/>
             <RowDefinition Height="40px"/>
-            <RowDefinition Height="225*"/>
+            <RowDefinition Height="40px"/>
+            <RowDefinition Height="108*"/>
         </Grid.RowDefinitions>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right">Наименование:</TextBlock>
-        <TextBox Margin="5 0 0 0" HorizontalAlignment="Left" TextWrapping="Wrap" Height="24" Grid.Column="1" Text="{Binding Title}"/>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="1">Стоимость:</TextBlock>
-        <TextBox Margin="5 0 0 0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="25" Width="70" Text="{Binding Cost}"/>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="2">Длительность в секундах:</TextBlock>
-        <TextBox Margin="5 0 0 0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" Height="25" Width="70" Text="{Binding DurationInSeconds}"/>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="3">Описание:</TextBlock>
-        <TextBox Margin="5 0 0 0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Height="40" Text="{Binding Description}"></TextBox>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="4">Скидка:</TextBlock>
-        <TextBox Margin="5 0 0 0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4" Height="25" Width="70" Text="{Binding Discount}"/>
-        <Button x:Name="SaveBtn" Width="100" Height="25" Grid.Column="1" Grid.Row="5">Сохранить</Button>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="64,0,0,0" Height="16" Width="86">Наименование:</TextBlock>
+        <TextBox Margin="5,8,0,8" HorizontalAlignment="Left" TextWrapping="Wrap" Height="NaN" Grid.Column="1" Text="{Binding Title}" Width="200"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Margin="89,0,0,0" Height="16" Width="61">Стоимость:</TextBlock>
+        <TextBox Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="NaN" Width="70" Text="{Binding Cost}"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Margin="10,0,0,0" Height="16" Width="140">Длительность в секундах:</TextBlock>
+        <TextBox Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" Height="NaN" Width="70" Text="{Binding DurationInSeconds}"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Margin="93,0,0,0" Height="16" Width="57">Описание:</TextBlock>
+        <TextBox Margin="5,0,0,0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Height="NaN" Text="{Binding Description}" Width="200"></TextBox>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4" Margin="108,0,0,0" Height="16" Width="42">Скидка:</TextBlock>
+        <TextBox Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4" Height="NaN" Width="70" Text="{Binding Discount}"/>
+        <Button x:Name="SaveBtn" Grid.Column="1" Grid.Row="5" Width="70" Height="25" Margin="5 0 0 0" HorizontalAlignment="Left">Сохранить</Button>
         <StackPanel Grid.Column="2" Grid.RowSpan="5" Orientation="Horizontal">
             <Border Margin="5 5" CornerRadius="3" BorderThickness="1" BorderBrush="#FF04A0FF">
                 <Image Width="199" Height="199" x:Name="ServiceImg" Source="{Binding MainImagePath}"/>
@@ -42,5 +43,32 @@
                 <Button x:Name="DltImageBtn" Width="170" Height="25">Удалить изображение</Button>
             </StackPanel>
         </StackPanel>
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <StackPanel Margin="35 0 0 0" Orientation= "Horizontal" HorizontalAlignment="Center">
+                <Button FontSize="50" Height="140" Click= "LeftBtn_Click" x:Name="LeftBtn" Content ="&lt;"/>
+                <ListView x:Name="ExcessImageList" Width="520" Height= "150" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation ="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Width= "120" Height="120" Source="{Binding PhotoPath}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button FontSize="50" Click= "RightBtn_Click" x:Name="RightBtn" Height="140" Content="&gt;" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Margin="35 0 0 5" Height="60" x:Name="AddIngBtn" Click="AddIngBtn_Click">
+                    <TextBlock TextWrapping="Wrap" Width="100" TextAlignment="Center" Text="Добавить дололнительное изображение"/>
+                </Button>
+                <Button Margin="35 5 0 0" Width="100" Height="60" x:Name="DeleteIngBtn" Click="DeleteIngBtn_Click">
+                    <TextBlock TextWrapping="Wrap" Width="100" TextAlignment="Center" Text="Удалить дополнительное изображение"/>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        
     </Grid>
 </Page>
