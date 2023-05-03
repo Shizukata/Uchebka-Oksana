@@ -165,6 +165,8 @@
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Discount" Type="Double" />
     <Property Name="MainImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IsDelete" Type="Boolean" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="ClientService" Relationship="UchPrakt326Model.FK_ClientService_Service" FromRole="Service" ToRole="ClientService" />
     <NavigationProperty Name="ServicePhoto" Relationship="UchPrakt326Model.FK_ServicePhoto_Service" FromRole="Service" ToRole="ServicePhoto" />
   </EntityType>
@@ -174,7 +176,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ServiceID" Type="Int32" Nullable="false" />
-    <Property Name="PhotoPath" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoPath" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Service" Relationship="UchPrakt326Model.FK_ServicePhoto_Service" FromRole="ServicePhoto" ToRole="Service" />
   </EntityType>
   <EntityType Name="sysdiagrams">

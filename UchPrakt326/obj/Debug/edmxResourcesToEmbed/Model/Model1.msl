@@ -90,6 +90,8 @@
     <EntitySetMapping Name="Service">
       <EntityTypeMapping TypeName="UchPrakt326Model.Service">
         <MappingFragment StoreEntitySet="Service">
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
           <ScalarProperty Name="MainImagePath" ColumnName="MainImagePath" />
           <ScalarProperty Name="Discount" ColumnName="Discount" />
           <ScalarProperty Name="Description" ColumnName="Description" />

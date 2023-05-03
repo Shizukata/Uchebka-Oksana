@@ -32,6 +32,11 @@ namespace UchPrakt326.Pages
             this.DataContext = service;
             service.DurationInSeconds /= 60;
             service.Discount *= 100;
+            ExcessImageList.ItemsSource = service.ServicePhoto;
+        }
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
         }
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -43,7 +48,7 @@ namespace UchPrakt326.Pages
             }
             App.DB.SaveChanges();
             MessageBox.Show("Успешно");
-            //Navigation.NextPage(new Nav("Список услуг", new ServicePage()));
+            NavigationService.Navigate(new ServicePage());
         }
         private void AddImageBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -53,7 +58,7 @@ namespace UchPrakt326.Pages
             };
             if (openFileDialog.ShowDialog().GetValueOrDefault())
             {
-                //service.MainImagePath = File.ReadAllBytes(openFileDialog.FileName);
+                service.Logo = File.ReadAllBytes(openFileDialog.FileName);
                 ServiceImg.Source = new BitmapImage(new Uri(openFileDialog.FileName));
             }
         }
@@ -71,13 +76,7 @@ namespace UchPrakt326.Pages
                 numberPage--;
             Update();
         }
-
-        private void DeleteIngBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void AddIngBtn_Click(object sender, RoutedEventArgs e)
+        private void AddAdditImgBtn_Click(object sender, RoutedEventArgs e)
         {
             ServicePhoto servicePhoto = new ServicePhoto();
             OpenFileDialog openFile = new OpenFileDialog()
@@ -86,11 +85,12 @@ namespace UchPrakt326.Pages
             };
             if (openFile.ShowDialog().GetValueOrDefault())
             {
-                //servicePhoto.PhotoPath = File.ReadAllBytes(openFile.FileName);
+                servicePhoto.PhotoPath = File.ReadAllBytes(openFile.FileName);
                 servicePhoto.ServiceID = service.ID;
                 App.DB.ServicePhoto.Add(servicePhoto);
                 App.DB.SaveChanges();
             }
+            ExcessImageList.ItemsSource = service.ServicePhoto;
         }
         int numberPage = 0;
         int count = 3;
@@ -99,6 +99,18 @@ namespace UchPrakt326.Pages
             IEnumerable<ServicePhoto> servicePhotoList = App.DB.ServicePhoto.Where(x => x.ServiceID == service.ID);
             servicePhotoList = servicePhotoList.Skip(count * numberPage).Take(count);
             ExcessImageList.ItemsSource = servicePhotoList;
+        }
+        private void DltImageBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DeleteIngBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DeleteAdditImgBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

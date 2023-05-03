@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,19 +28,30 @@ namespace UchPrakt326.Pages
             InitializeComponent();
             App.header = "Список услуг";
             InitializeComponent();
-            LvList.ItemsSource =App.DB.Service.Where(x => x.isDelete != true).ToList();
-
+            LvList.ItemsSource =App.DB.Service.Where(x => x.IsDelete != true).ToList();
+            AddBtn.Visibility = Visibility.Collapsed;
+            if (App.godMod == true)
+                AddBtn.Visibility = Visibility.Visible;
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(var item in App.DB.Service)
+            {
+                item.MainImagePath = item.MainImagePath.Trim();
+                item.Logo = File.ReadAllBytes($"C:/Users/progWeb/Desktop/{item.MainImagePath}");
+            }
+            App.DB.SaveChanges();
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            //Navigate(new AddEditSevicePage("Добавление услуги", new AddEditSevicePage(new Service())));
+            NavigationService.Navigate(new AddEditSevicePage(new Service()));
         }
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)
         {
             var selService = (sender as Button).DataContext as Service;
-            //Navigate(new AddEditSevicePage("Редактирование услуги", new AddEditServicePage(selService)));
+            NavigationService.Navigate(new AddEditSevicePage(selService));
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
@@ -47,15 +59,15 @@ namespace UchPrakt326.Pages
             var selService = (sender as Button).DataContext as Service;
             if (MessageBox.Show("Вы действительно хотите удалить эту запись?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                selService.isDelete = true;
+                selService.IsDelete = true;
                 App.DB.SaveChanges();
-                LvList.ItemsSource = App.DB.Service.Where(x => x.isDelete != true).ToList();
+                LvList.ItemsSource = App.DB.Service.Where(x => x.IsDelete != true).ToList();
 
             }
         }
         public void Refresh()
         {
-            IEnumerable<Service> filterService = App.DB.Service.Where(x => x.isDelete != true).ToList();
+            IEnumerable<Service> filterService = App.DB.Service.Where(x => x.IsDelete != true).ToList();
             if (SortCb.SelectedIndex == 1)
                 filterService = filterService.OrderBy(x => x.CostDiscount);
             else if (SortCb.SelectedIndex == 2)
