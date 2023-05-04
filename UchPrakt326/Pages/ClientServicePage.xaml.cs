@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,6 +28,9 @@ namespace UchPrakt326.Pages
             this.order = order;
             this.DataContext = order;
             InitializeComponent();
+            ClientCb.ItemsSource = App.DB.Client.ToList();
+            OrderDp.Text = DateTime.Now.ToString();
+            OrderTb.Text = DateTime.Now.ToString("t");
         }
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -34,13 +38,29 @@ namespace UchPrakt326.Pages
         }
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (order.ID == 0)
+            string TimeOut = OrderDp.Text + " " + OrderTb.Text;
+            if (ClientCb.SelectedItem == null)
             {
-                App.DB.Service.Add(order);
+                MessageBox.Show("Вы не выбрали клиента");
+                return;
+            }
+            if (string.IsNullOrEmpty(OrderDp.Text)||DateTime.Parse(TimeOut) <= DateTime.Now)
+            {
+                MessageBox.Show("Вы ввели неверную дату");
+                return;
+            }
+            if (order.ID != 0)
+            {
+                ClientService clientService = new ClientService();
+                clientService.ServiceID = order.ID;
+                var client = ClientCb.SelectedItem as Client;
+                clientService.ClientID = client.ID;
+                clientService.StartTime = DateTime.Parse(TimeOut);
+                App.DB.ClientService.Add(clientService);
             }
             App.DB.SaveChanges();
             MessageBox.Show("Успешно");
-            NavigationService.Navigate(new ServicePage());
+            NavigationService.GoBack();
         }
     }
 }

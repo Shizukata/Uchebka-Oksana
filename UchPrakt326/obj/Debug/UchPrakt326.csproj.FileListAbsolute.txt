@@ -64,3 +64,7 @@ C:\Users\progWeb\source\repos\Uchebka-Oksana\UchPrakt326\obj\Debug\UchPrakt326.P
 C:\Users\progWeb\source\repos\Uchebka-Oksana\UchPrakt326\obj\Debug\UchPrakt326.csproj.GenerateResource.cache
 C:\Users\progWeb\source\repos\Uchebka-Oksana\UchPrakt326\obj\Debug\UchPrakt326.csproj.CoreCompileInputs.cache
 C:\Users\progWeb\source\repos\Uchebka-Oksana\UchPrakt326\obj\Debug\UchPrakt326.csproj.CopyComplete
+C:\Users\progWeb\source\repos\Uchebka-Oksana\UchPrakt326\obj\Debug\Pages\ClientServicePage.g.cs
+C:\Users\progWeb\source\repos\Uchebka-Oksana\UchPrakt326\obj\Debug\Pages\ClientServicePage.baml
+C:\Users\progWeb\source\repos\Uchebka-Oksana\UchPrakt326\obj\Debug\Pages\OrdersPage.g.cs
+C:\Users\progWeb\source\repos\Uchebka-Oksana\UchPrakt326\obj\Debug\Pages\OrdersPage.baml

@@ -27,27 +27,25 @@
             <TextBlock FontSize="14" Text="Id:"/>
             <TextBlock FontSize="14" Text="{Binding ID}"/>
         </StackPanel>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="64,0,0,0" Height="16" Width="86" Text="Наименование:"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="54,0,10,0" Height="16" Width="86" Text="Наименование:"/>
         <TextBlock Margin="5,2,0,8" HorizontalAlignment="Left" TextWrapping="Wrap" Height="40" Grid.Column="1" Text="{Binding Title}" Width="200"/>
         
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Margin="89,0,0,0" Height="16" Width="61" Text="Стоимость:"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Margin="79,0,10,0" Height="16" Width="61" Text="Стоимость:"/>
         <TextBlock Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="NaN" Width="70" Text="{Binding Cost}"/>
         
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Margin="10,0,0,0" Height="16" Width="140" Text="Длительность(в минутах):"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Margin="0,0,10,0" Height="16" Width="140" Text="Длительность(в минутах):"/>
         <TextBlock Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" Height="NaN" Width="70" Text="{Binding DurationInSeconds}"/>
 
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Margin="93,0,0,0" Height="16" Width="57" Text="Описание:"/>
-        <TextBlock Margin="5,0,0,0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Height="40" Text="{Binding Description}" Width="200"/>
-
-        <Button FontSize="16" x:Name="BackBtn" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Width="25" Height="25" Margin="105,8,0,8" Click="BackBtn_Click">🠔</Button>
-        <Button x:Name="SaveBtn" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Width="70" Height="25" Margin="135,8,0,8" Click="SaveBtn_Click">Сохранить</Button>
+        <Button FontSize="16" x:Name="BackBtn" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Width="25" Height="25" Margin="105,0,0,8" Click="BackBtn_Click">🠔</Button>
+        <Button x:Name="SaveBtn" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Width="70" Height="25" Margin="135,0,0,8" Click="SaveBtn_Click">Сохранить</Button>
 
         <TextBlock Text="Потребитель:" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <ComboBox Grid.Column="3" Width="220" Height="20" FontSize="10">
-            <ComboBoxItem Content="{Binding Client.Name}"/>
-        </ComboBox>
+        <ComboBox DisplayMemberPath="fio" x:Name="ClientCb" Grid.Column="3" Width="220" Height="20" FontSize="10"/>
 
-        <TextBlock Text="Время начала:" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Grid.Column="3" Grid.Row="1"/>
+        <TextBlock Text="Дата записи:" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <DatePicker x:Name="OrderDp" Grid.Column="3" Grid.Row="1" Width="100" Height="25"/>
+        
+        <TextBlock Text="Время записи:" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBox x:Name="OrderTb" Grid.Column="3" Grid.Row="2" Width="100"/>
     </Grid>
 </Page>

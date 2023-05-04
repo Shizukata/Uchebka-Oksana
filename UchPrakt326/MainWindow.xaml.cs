@@ -40,5 +40,15 @@ namespace UchPrakt326
             else
                 MessageBox.Show("Код неверный");
         }
+
+        private void GoServicePage_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ServicePage());
+        }
+
+        private void GoOrdersPage_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new OrdersPage());
+        }
     }
 }

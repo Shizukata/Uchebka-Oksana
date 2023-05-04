@@ -53,7 +53,7 @@ namespace UchPrakt326.Pages
             var selService = (sender as Button).DataContext as Service;
             NavigationService.Navigate(new AddEditSevicePage(selService));
         }
-        private void OrdereBtn_Click(object sender, RoutedEventArgs e)
+        private void OrderBtn_Click(object sender, RoutedEventArgs e)
         {
             var ordService = (sender as Button).DataContext as Service;
             NavigationService.Navigate(new ClientServicePage(ordService));
