@@ -48,9 +48,9 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="6" Grid.ColumnSpan="3" Orientation="Horizontal"  VerticalAlignment="Top">
-            <StackPanel Background="#FFA5DDFF" Margin="35 0 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Margin="35 0 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Margin="5 0 5 0" Foreground="White" Background="#FF04A0FF" FontSize="50" Height="110" Click= "LeftBtn_Click" x:Name="LeftBtn" Content ="&lt;"/>
-                <ListView BorderThickness="0" Background="#FFA5DDFF" x:Name="ExcessImageList" Width="520" Height= "120" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListView BorderThickness="0"  x:Name="ExcessImageList" Width="520" Height= "120" d:ItemsSource="{d:SampleData ItemCount=5}">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <StackPanel Orientation ="Horizontal"/>

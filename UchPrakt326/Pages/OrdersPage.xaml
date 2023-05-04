@@ -14,7 +14,7 @@
                 <DataTemplate>
                     <Border Margin="5 0 0 5" BorderThickness="1.5" BorderBrush="#FF04A0FF">
                         <StackPanel  Width="740" Height="200">
-                            <Grid>
+                            <Grid Background="{Binding Color}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="165px"/>
                                     <ColumnDefinition Width="676*"/>
@@ -30,7 +30,7 @@
                                     <TextBlock Text="{Binding Client.fio}" Grid.Column="1" FontSize="14" TextWrapping="Wrap" Width="615" HorizontalAlignment="Left"/>
                                     <TextBlock Text="{Binding Client.Phone}" Grid.Column="1" FontSize="14" TextWrapping="Wrap" Width="615" HorizontalAlignment="Left"/>
                                     <TextBlock Text="{Binding Client.Email}" Grid.Column="1" FontSize="14" TextWrapping="Wrap" Width="615" HorizontalAlignment="Left"/>
-                                    <TextBlock Text="{Binding Service.TimeOut}" Grid.Column="1" FontSize="14" TextWrapping="Wrap" Width="615" HorizontalAlignment="Left"/>
+                                    <TextBlock Text="{Binding Time}" Grid.Column="1" FontSize="14" TextWrapping="Wrap" Width="615" HorizontalAlignment="Left"/>
                                     <TextBlock Text="{Binding remainingTime}" Grid.Column="1" FontSize="14" TextWrapping="Wrap" Width="615" HorizontalAlignment="Left"/>
                                 </StackPanel>
                             </Grid>

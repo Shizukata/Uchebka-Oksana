@@ -12,7 +12,7 @@ namespace UchPrakt326.Model
         {
             get
             {
-                if(StartTime <= DateTime.Now)
+                if(StartTime <= DateTime.Now.AddHours(1))
                 {
                     return "red";
                 }
@@ -28,6 +28,13 @@ namespace UchPrakt326.Model
             {
                 var timer = StartTime - DateTime.Now;
                 return $"Начало через: {timer.ToString(@"hh\:mm")}";
+            }
+        }
+        public string Time
+        {
+            get
+            {
+                return $"Дата и время записи: {StartTime}";
             }
         }
     }
