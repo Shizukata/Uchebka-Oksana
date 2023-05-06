@@ -23,7 +23,7 @@ namespace UchPrakt326.Pages
         public OrdersPage()
         {
             InitializeComponent();
-            LvList.ItemsSource = App.DB.ClientService.Where(x => (x.StartTime < (DateTime.Now.AddHours(48)) && x.StartTime > DateTime.Now)).ToList().OrderByDescending(x => x.StartTime);
+            LvList.ItemsSource = App.DB.ClientService.Where(x => x.StartTime > DateTime.Now).ToList().OrderByDescending(x => x.StartTime);
             var dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
@@ -35,7 +35,7 @@ namespace UchPrakt326.Pages
         }
         public void Refresh()
         {
-            LvList.ItemsSource = App.DB.ClientService.ToList().OrderByDescending(x => x.StartTime);
+            LvList.ItemsSource = App.DB.ClientService.Where(x => x.StartTime > DateTime.Now).ToList().OrderByDescending(x => x.StartTime);
         }
     }
 }

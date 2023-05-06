@@ -17,14 +17,14 @@
         <StackPanel Orientation="Horizontal">
             <TextBlock Margin="10 0 5 0" VerticalAlignment="Center" Style="{StaticResource TbWhite}">Сортировка:</TextBlock>
             <ComboBox x:Name="SortCb" SelectionChanged="SortCb_SelectionChanged" 
-                      Margin="0 6 0 0" Width="150" Height="20" Text="По умолчанию" IsEditable="True" IsReadOnly="True">
+                      Margin="0 6 0 0" Width="150" Height="20">
                 <ComboBoxItem>По умолчанию</ComboBoxItem>
                 <ComboBoxItem>По возрастанию</ComboBoxItem>
                 <ComboBoxItem>По убыванию</ComboBoxItem>
             </ComboBox>
             <TextBlock Margin="10 0 5 0" VerticalAlignment="Center" Style="{StaticResource TbWhite}">Скидка:</TextBlock>
             <ComboBox x:Name="DiscountSortCb" SelectionChanged="DiscountSortCb_SelectionChanged"
-                      Margin="0 6 0 0" Width="50" Height="20" Text="от 0 до 5%" IsEditable="True" IsReadOnly="True">
+                      Margin="0 6 0 0" Width="50" Height="20" >
                 <ComboBoxItem>Все</ComboBoxItem>
                 <ComboBoxItem>от 0 до 5%</ComboBoxItem>
                 <ComboBoxItem>от 5 до 15%</ComboBoxItem>
@@ -44,7 +44,7 @@
             <Button Visibility="Collapsed" Click="Button_Click" Width="50"/>
             <Button x:Name="AddBtn" Height="22" Width="60" Margin="30 6 0 0" Click="AddBtn_Click" Visibility="{Binding VisibilityBtn}">Добавить</Button>
         </StackPanel>
-        <ListView Margin="0 5 0 0" x:Name="LvList" Grid.Row="1" BorderThickness="0" Height="380" Width="785"
+        <ListView Margin="0 5 0 0" x:Name="LvList" Grid.Row="1" BorderThickness="0" Height="350" Width="785"
                   VerticalAlignment="Top" HorizontalAlignment="Left" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -80,9 +80,11 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Height="30" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Margin="0 0 30 0" x:Name="BtLeft" Click="BtLeft_Click" Content="🠔" Width="40"/>
-            <TextBlock x:Name="ListTb"/>
-            <Button Margin="30 0 0 0" x:Name="BtRigt" Click="BtRigt_Click" Content="🠖" Width="40"/>
+            <Button Margin="0 0 10 0" x:Name="BtLeft" Click="BtLeft_Click" Content="🠔" Width="40"/>
+            <TextBlock Margin="7" FontSize="14" FontWeight="SemiBold" x:Name="ListTb"/>
+            <Button Margin="10 0 0 0" x:Name="BtRigt" Click="BtRigt_Click" Content="🠖" Width="40"/>
         </StackPanel>
+        <TextBlock Margin="0 0 10 0" FontSize="14" FontStyle="Italic"
+                   x:Name="TbItemsInList" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

@@ -29,9 +29,11 @@ namespace UchPrakt326.Pages
         public ServicePage()
         {
             InitializeComponent();
+            CbFilterList.SelectedIndex = 0;
+            DiscountSortCb.SelectedIndex = 0;
+            SortCb.SelectedIndex = 0;
             App.header = "Список услуг";
-            InitializeComponent();
-            LvList.ItemsSource =App.DB.Service.Where(x => x.IsDelete != true).ToList();
+            Refresh();
             AddBtn.Visibility = Visibility.Collapsed;
             if (App.godMod == true)
                 AddBtn.Visibility = Visibility.Visible;
@@ -76,6 +78,8 @@ namespace UchPrakt326.Pages
         public void Refresh()
         {
             IEnumerable<Service> filterService = App.DB.Service.Where(x => x.IsDelete != true).ToList();
+            if (SortCb.SelectedIndex == 0)
+                LvList.ItemsSource = App.DB.Service.Where(x => x.IsDelete != true).ToList();
             if (SortCb.SelectedIndex == 1)
                 filterService = filterService.OrderBy(x => x.CostDiscount);
             else if (SortCb.SelectedIndex == 2)
@@ -104,10 +108,12 @@ namespace UchPrakt326.Pages
             {
                 servCount += inpages;
                 MaxPage++;
-            } while (servCount < serwBuffer.Count()); ListTb.Text = $"{currentPage + 1}/{MaxPage}";
+            } 
+            while (servCount < serwBuffer.Count()); 
+            ListTb.Text = $"{currentPage + 1}/{MaxPage}";
             filterService = filterService.Skip(inpages * currentPage).Take(inpages);
             LvList.ItemsSource = filterService.ToList();
-
+            TbItemsInList.Text = $"{filterService.Count()} из {inpages}";
         }
         private void CbFilterList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

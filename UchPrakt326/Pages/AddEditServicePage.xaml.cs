@@ -45,7 +45,15 @@ namespace UchPrakt326.Pages
             serv.Discount /= 100;
             if (serv.ID == 0)
             {
-                App.DB.Service.Add(serv);
+                if (App.DB.Service.FirstOrDefault(x => x.Title == TbName.Text) == null)
+                    App.DB.Service.Add(serv);
+                else
+                {
+                    MessageBox.Show("Такое наименование уже существует, попробуйте иное");
+                    return;
+                }
+                    
+                
             }
             App.DB.SaveChanges();
             MessageBox.Show("Успешно");

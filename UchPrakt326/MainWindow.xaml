@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UchPrakt326"
         mc:Ignorable="d" Icon="Resources/school_logo.ico"
-        Title="Школа иностранных языков" Height="450" Width="800">
+        Title="Школа иностранных языков" Height="520" Width="800">
     <Grid>
         <StackPanel>
             <StackPanel Background="White" Height="60" Orientation="Horizontal">
@@ -28,7 +28,7 @@
                 </StackPanel>
             </StackPanel>
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" 
-                   Height="365"/>
+                   Height="410"/>
         </StackPanel>
     </Grid>
 </Window>
