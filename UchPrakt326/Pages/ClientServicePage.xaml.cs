@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -61,6 +62,12 @@ namespace UchPrakt326.Pages
             App.DB.SaveChanges();
             MessageBox.Show("Успешно");
             NavigationService.GoBack();
+        }
+
+        private void OrderTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch(e.Text, @"[00-23:00-59]") == false)
+                e.Handled = true;
         }
     }
 }

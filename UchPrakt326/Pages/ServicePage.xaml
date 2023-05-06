@@ -16,13 +16,15 @@
         <TextBlock Margin="0 5 0 0" Height="30" Text="" Background="#FF04A0FF"/>
         <StackPanel Orientation="Horizontal">
             <TextBlock Margin="10 0 5 0" VerticalAlignment="Center" Style="{StaticResource TbWhite}">Сортировка:</TextBlock>
-            <ComboBox x:Name="SortCb" SelectionChanged="SortCb_SelectionChanged" Margin="0 6 0 0" Width="150" Height="20" >
+            <ComboBox x:Name="SortCb" SelectionChanged="SortCb_SelectionChanged" 
+                      Margin="0 6 0 0" Width="150" Height="20" Text="По умолчанию" IsEditable="True" IsReadOnly="True">
                 <ComboBoxItem>По умолчанию</ComboBoxItem>
                 <ComboBoxItem>По возрастанию</ComboBoxItem>
                 <ComboBoxItem>По убыванию</ComboBoxItem>
             </ComboBox>
             <TextBlock Margin="10 0 5 0" VerticalAlignment="Center" Style="{StaticResource TbWhite}">Скидка:</TextBlock>
-            <ComboBox x:Name="DiscountSortCb" SelectionChanged="DiscountSortCb_SelectionChanged" Margin="0 6 0 0" Width="50" Height="20">
+            <ComboBox x:Name="DiscountSortCb" SelectionChanged="DiscountSortCb_SelectionChanged"
+                      Margin="0 6 0 0" Width="50" Height="20" Text="от 0 до 5%" IsEditable="True" IsReadOnly="True">
                 <ComboBoxItem>Все</ComboBoxItem>
                 <ComboBoxItem>от 0 до 5%</ComboBoxItem>
                 <ComboBoxItem>от 5 до 15%</ComboBoxItem>
@@ -32,14 +34,22 @@
             </ComboBox>
             <TextBlock Margin="10 0 5 0" VerticalAlignment="Center" Style="{StaticResource TbWhite}" Text="Поиск:"/>
             <TextBox Margin="0 6 0 0" x:Name="TitleDescriptionTb" TextChanged="TitleDescriptionTb_TextChanged"></TextBox>
+            <ComboBox Height="25" Margin="15 5 0 0" Text="3" IsEditable="True" IsReadOnly="True"
+                      x:Name="CbFilterList" SelectionChanged="CbFilterList_SelectionChanged">
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>15</ComboBoxItem>
+            </ComboBox>
             <Button Visibility="Collapsed" Click="Button_Click" Width="50"/>
-            <Button x:Name="AddBtn" Height="22" Width="60" Margin="65 6 0 0" Click="AddBtn_Click" Visibility="{Binding VisibilityBtn}">Добавить</Button>
+            <Button x:Name="AddBtn" Height="22" Width="60" Margin="30 6 0 0" Click="AddBtn_Click" Visibility="{Binding VisibilityBtn}">Добавить</Button>
         </StackPanel>
-        <ListView Margin="0 5 0 0" x:Name="LvList" Grid.Row="1" BorderThickness="0" Width="785" HorizontalAlignment="Left" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListView Margin="0 5 0 0" x:Name="LvList" Grid.Row="1" BorderThickness="0" Height="380" Width="785"
+                  VerticalAlignment="Top" HorizontalAlignment="Left" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="5 0 0 5" BorderThickness="1.5" BorderBrush="#FF04A0FF">
-                        <StackPanel  Width="740" Height="100">
+                        <StackPanel Background="{Binding Color}"  Width="740" Height="100">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="100*"/>
@@ -69,5 +79,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <StackPanel Height="30" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Margin="0 0 30 0" x:Name="BtLeft" Click="BtLeft_Click" Content="🠔" Width="40"/>
+            <TextBlock x:Name="ListTb"/>
+            <Button Margin="30 0 0 0" x:Name="BtRigt" Click="BtRigt_Click" Content="🠖" Width="40"/>
+        </StackPanel>
     </Grid>
 </Page>

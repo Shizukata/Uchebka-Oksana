@@ -46,6 +46,6 @@
         <DatePicker x:Name="OrderDp" Grid.Column="3" Grid.Row="1" Width="100" Height="25"/>
         
         <TextBlock Text="Время записи:" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox x:Name="OrderTb" Grid.Column="3" Grid.Row="2" Width="100"/>
+        <TextBox MaxLength="5" PreviewTextInput="OrderTb_PreviewTextInput" x:Name="OrderTb" Grid.Column="3" Grid.Row="2" Width="100"/>
     </Grid>
 </Page>

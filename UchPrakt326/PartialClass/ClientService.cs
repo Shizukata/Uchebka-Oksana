@@ -13,13 +13,9 @@ namespace UchPrakt326.Model
             get
             {
                 if(StartTime <= DateTime.Now.AddHours(1))
-                {
                     return "red";
-                }
                 else 
-                {
                     return "White";
-                }
             }
         }
         public string remainingTime

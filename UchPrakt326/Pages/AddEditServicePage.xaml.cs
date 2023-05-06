@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -111,6 +112,36 @@ namespace UchPrakt326.Pages
         private void DeleteAdditImgBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void TbName_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch(e.Text, @"[A-zА-я]") == false)
+                e.Handled = true;
+        }
+
+        private void TbPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch(e.Text, @"[0-9]") == false)
+                e.Handled = true;
+        }
+
+        private void TbTimeInSec_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch(e.Text, @"[0-9]") == false)
+                e.Handled = true;
+        }
+
+        private void TbDescription_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch(e.Text, @"[A-zА-я]") == false)
+                e.Handled = true;
+        }
+
+        private void TbDiscount_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (Regex.IsMatch(e.Text, @"[0.0-9]") == false)
+                e.Handled = true;
         }
     }
 }

@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a2a9220c5cf745369a12565caf93b809" Name="Diagram1">
-        <EntityTypeShape EntityType="UchPrakt326Model.Client" Width="1.5" PointX="0.75" PointY="7" />
+        <EntityTypeShape EntityType="UchPrakt326Model.Client" Width="1.5" PointX="0.75" PointY="10.875" />
         <EntityTypeShape EntityType="UchPrakt326Model.ClientService" Width="1.5" PointX="3" PointY="9.375" />
         <EntityTypeShape EntityType="UchPrakt326Model.DocumentByService" Width="1.5" PointX="5.25" PointY="9.875" />
-        <EntityTypeShape EntityType="UchPrakt326Model.Gender" Width="1.5" PointX="1.5" PointY="13" />
+        <EntityTypeShape EntityType="UchPrakt326Model.Gender" Width="1.5" PointX="1.5" PointY="15.875" />
         <EntityTypeShape EntityType="UchPrakt326Model.Manufacturer" Width="1.5" PointX="0.75" PointY="2.625" />
         <EntityTypeShape EntityType="UchPrakt326Model.Product" Width="1.5" PointX="3" PointY="1.875" />
         <EntityTypeShape EntityType="UchPrakt326Model.ProductPhoto" Width="1.5" PointX="5.25" PointY="5.75" />
         <EntityTypeShape EntityType="UchPrakt326Model.ProductSale" Width="1.5" PointX="5.25" PointY="2.375" />
-        <EntityTypeShape EntityType="UchPrakt326Model.Service" Width="1.5" PointX="0.75" PointY="16.25" />
-        <EntityTypeShape EntityType="UchPrakt326Model.ServicePhoto" Width="1.5" PointX="3" PointY="19" />
+        <EntityTypeShape EntityType="UchPrakt326Model.Service" Width="1.5" PointX="0.75" PointY="7" />
+        <EntityTypeShape EntityType="UchPrakt326Model.ServicePhoto" Width="1.5" PointX="3" PointY="18.75" />
         <EntityTypeShape EntityType="UchPrakt326Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="UchPrakt326Model.Tag" Width="1.5" PointX="3" PointY="15.875" />
+        <EntityTypeShape EntityType="UchPrakt326Model.Tag" Width="1.5" PointX="3" PointY="6.75" />
         <AssociationConnector Association="UchPrakt326Model.FK_Client_Gender" />
         <AssociationConnector Association="UchPrakt326Model.FK_ClientService_Client" />
         <AssociationConnector Association="UchPrakt326Model.FK_ClientService_Service" />

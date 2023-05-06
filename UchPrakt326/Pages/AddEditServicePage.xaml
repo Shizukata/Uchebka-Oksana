@@ -27,15 +27,15 @@
             <TextBlock FontSize="14" Text="{Binding ID}"/>
         </StackPanel>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Margin="64,0,0,0" Height="16" Width="86">Наименование:</TextBlock>
-        <TextBox Margin="5,2,0,8" HorizontalAlignment="Left" TextWrapping="Wrap" Height="40" Grid.Column="1" Text="{Binding Title}" Width="200"/>
+        <TextBox x:Name="TbName" PreviewTextInput="TbName_PreviewTextInput" Margin="5,2,0,8" HorizontalAlignment="Left" TextWrapping="Wrap" Height="40" Grid.Column="1" Text="{Binding Title}" Width="200"/>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Margin="89,0,0,0" Height="16" Width="61">Стоимость:</TextBlock>
-        <TextBox Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="NaN" Width="70" Text="{Binding Cost}"/>
+        <TextBox x:Name="TbPrice" PreviewTextInput="TbPrice_PreviewTextInput" Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Height="NaN" Width="70" Text="{Binding Cost}"/>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Margin="10,0,0,0" Height="16" Width="140">Длительность в секундах:</TextBlock>
-        <TextBox Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" Height="NaN" Width="70" Text="{Binding DurationInSeconds}"/>
+        <TextBox x:Name="TbTimeInSec" PreviewTextInput="TbTimeInSec_PreviewTextInput" Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" Height="NaN" Width="70" Text="{Binding DurationInSeconds}"/>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Margin="93,0,0,0" Height="16" Width="57">Описание:</TextBlock>
-        <TextBox Margin="5,0,0,0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Height="40" Text="{Binding Description}" Width="200"></TextBox>
+        <TextBox x:Name="TbDescription" PreviewTextInput="TbDescription_PreviewTextInput" Margin="5,0,0,0" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Height="40" Text="{Binding Description}" Width="200"></TextBox>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4" Margin="108,0,0,0" Height="16" Width="42">Скидка:</TextBlock>
-        <TextBox Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4" Height="NaN" Width="70" Text="{Binding Discount}"/>
+        <TextBox x:Name="TbDiscount" PreviewTextInput="TbDiscount_PreviewTextInput" Margin="5,8,0,7" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4" Height="NaN" Width="70" Text="{Binding Discount}"/>
         <Button FontSize="16" x:Name="BackBtn" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" Width="25" Height="25" Margin="0 0 120 0" Click="BackBtn_Click">🠔</Button>
         <Button x:Name="SaveBtn" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right" Width="70" Height="25" Margin="0 0 45 0" Click="SaveBtn_Click">Сохранить</Button>
         <StackPanel Grid.Column="2" Grid.RowSpan="5" Orientation="Horizontal">
